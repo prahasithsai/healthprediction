@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Prediction</title>
+</head>
+<body bgcolor="Gainsboro">
+    <h1 align="center"><u>Prediction of Behavioural aspects of Young children during Covid 19(Lock Down Time)</u></h1>
+    <h1 align="center"><u>Please fill all the details & then click "SUBMIT" button</u></h1>
+    
+   {% if label %}
+        {% if label==0  %}
+            <h3 align = "center" style="color:green">Child is suffering from Expected Difficulties!</h3>
+        {% elif label==1 %}
+            <h3 align = "center" style="color:yellow">Child is suffering from Borderline Difficulties!</h3>
+        {% else %}
+            <h3 align = "center" style="color:red">Child is suffering from Clinically significant Difficulties!</h3> 
+        {% endif %}
+    {% endif %}
+   
+    <form action="/predict" method="POST">
+        <h3 align="center"><label for="Yesterdays_breakfast">What did child ate for breakfast YESTERDAY?</label></h3>
+        <h4 align="center"><select id="myTextBox1" name="Yesterdays_breakfast">
+            <option value="" disabled selected>Select the food</option>
+            <option value="0">No Food</option>
+            <option value="1">Healthy Food</option>
+            <option value="2">Toast Food</option>
+            <option value="3">Sugary Food</option>
+            <option value="4">Fruit Food</option>
+            <option value="5">Cooked Food</option>
+            <option value="6">Other Food</option>
+        </select></h4>
+        <h3 align="center"><label for = 'No_of_times_brushing_teeth'>How many times did you brush your teeth YESTERDAY?</label></h3><h4 align="center"><input step="1" min="0" max="3" type = 'number' id = 'myTextBox1' name = 'No_of_times_brushing_teeth' style="height: 15px ; width: 300px;" placeholder="Enter how many times you brush"></h4>
+        <h3 align="center"><label for = 'Is_it_safe_playing_in_your_area'>On a scale of 0 to 10,how safe do you feel playing in your area?</label></h3><h4 align="center"><input step="1" min="0" max="10" type = 'number' id = 'myTextBox1' name = 'Is_it_safe_playing_in_your_area' style="height: 15px ; width: 300px;" placeholder="Give your rating"></h4>
+        <h3 align="center"><label for="Do_you_go_to_playoutside">How often do you go out to play outside?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Do_you_go_to_playoutside">
+            <option value="" disabled selected>Select your Interest</option>
+            <option value="4">Most days</option>
+            <option value="1">A few days each week</option>
+            <option value="2">Hardly ever</option>
+            <option value="3">I don't play</option>
+        </select></h4>
+        <h3 align="center"><label for="Can_you_play_in_all_places">Can you play in all the places you would like to?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Can_you_play_in_all_places">
+            <option value="" disabled selected>Select your opinion</option>
+            <option value="4">I can play in all the places I would like to</option>
+            <option value="3">I can play in some of the places I would like to</option>
+            <option value="2">I can only play in a few places I would like to</option>
+            <option value="1">I can hardly play in any of the places I would like to</option>
+        </select></h4>
+        <h3 align="center"><label for = 'Your_health'>On a scale of 0 to 10,Rate how good is your health?</label></h3><h4 align="center"><input step="1" min="0" max="10" type = 'number' id = 'myTextBox1' name = 'Your_health' style="height: 15px ; width: 300px;" placeholder="Give your rating"></h4>
+        <h3 align="center"><label for = 'Your_school'>On a scale of 0 to 10,Rate how good is your school?</label></h3><h4 align="center"><input step="1" min="0" max="10" type = 'number' id = 'myTextBox1' name = 'Your_school' style="height: 15px ; width: 300px;" placeholder="Give your rating"></h4>
+        <h3 align="center"><label for = 'Your_family'>On a scale of 0 to 10,Rate how good is your family?</label></h3><h4 align="center"><input step="1" min="0" max="10" type = 'number' id = 'myTextBox1' name = 'Your_family' style="height: 15px ; width: 300px;" placeholder="Give your rating"></h4>
+        <h3 align="center"><label for = 'Your_friends'>On a scale of 0 to 10,Rate how good is your friends?</label></h3><h4 align="center"><input step="1" min="0" max="10" type = 'number' id = 'myTextBox1' name = 'Your_friends' style="height: 15px ; width: 300px;" placeholder="Give your rating"></h4>
+        <h3 align="center"><label for = 'Your_appearance'>On a scale of 0 to 10,Rate how good is your appearance (how you look)?</label></h3><h4 align="center"><input step="1" min="0" max="10" type = 'number' id = 'myTextBox1' name = 'Your_appearance' style="height: 15px ; width: 300px;" placeholder="Give your rating"></h4>
+        <h3 align="center"><label for = 'Your_life'>On a scale of 0 to 10,Rate how good is your life?</label></h3><h4 align="center"><input step="1" min="0" max="10" type = 'number' id = 'myTextBox1' name = 'Your_life' style="height: 15px ; width: 300px;" placeholder="Give your rating"></h4>
+        <h3 align="center"><label for="Activities">In the last 7 days, how many days did you do sports or exercise for at least 1 hour in total?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Activities">
+            <option value="" disabled selected>Select your count</option>
+            <option value="7">7 days</option>
+            <option value="6">5-6 days</option>
+            <option value="4">3-4 days</option>
+            <option value="2">1-2 days</option>
+            <option value="0">0 days</option>
+        </select></h4>
+        <h3 align="center"><label for="Do_you_get_tired">In the last 7 days, how many days did you feel tired?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Do_you_get_tired">
+            <option value="" disabled selected>Select your count</option>
+            <option value="7">7 days</option>
+            <option value="6">5-6 days</option>
+            <option value="4">3-4 days</option>
+            <option value="2">1-2 days</option>
+            <option value="0">0 days</option>
+        </select></h4>
+        <h3 align="center"><label for="Do_you_finish_you_home_work">In the last 7 days, how many days did you feel like you could concentrate/pay attention well on your school work?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Do_you_finish_you_home_work">
+            <option value="" disabled selected>Select your count</option>
+            <option value="7">7 days</option>
+            <option value="6">5-6 days</option>
+            <option value="4">3-4 days</option>
+            <option value="2">1-2 days</option>
+            <option value="0">0 days</option>
+        </select></h4>
+        <h3 align="center"><label for="Do_you_have_drinks">In the last 7 days, how many days did you drink at least one fizzy drink?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Do_you_have_drinks">
+            <option value="" disabled selected>Select your count</option>
+            <option value="7">7 days</option>
+            <option value="6">5-6 days</option>
+            <option value="4">3-4 days</option>
+            <option value="2">1-2 days</option>
+            <option value="0">0 days</option>
+        </select></h4>
+        <h3 align="center"><label for="Are_you_doing_well_your_homework">Whether are you doing well with your school work?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Are_you_doing_well_your_homework">
+            <option value="" disabled selected>Select your opinion</option>
+            <option value="2">Agree</option>
+            <option value="1">Strongly agree</option>
+            <option value="3">Disagree</option>
+            <option value="4">Strongly disagree</option>
+            <option value="5">Don't agree or disagree</option>
+        </select></h4>
+        <h3 align="center"><label for="Are_you_part_of_school_community">Whether are you feel part of your school community?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Are_you_part_of_school_community">
+            <option value="" disabled selected>Select your opinion</option>
+            <option value="2">Agree</option>
+            <option value="1">Strongly agree</option>
+            <option value="3">Disagree</option>
+            <option value="4">Strongly disagree</option>
+            <option value="5">Don't agree or disagree</option>
+        </select></h4>
+        <h3 align="center"><label for="Important_things">Whether do you have lots of choice over things that are important to you?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Important_things">
+            <option value="" disabled selected>Select your opinion</option>
+            <option value="2">Agree</option>
+            <option value="1">Strongly agree</option>
+            <option value="3">Disagree</option>
+            <option value="4">Strongly disagree</option>
+            <option value="5">Don't agree or disagree</option>
+        </select></h4>
+        <h3 align="center"><label for="Im_good_at">Whether there are lots of things that you are good at?</label></h3><!--<h4 align="center"><input step="1" min="0" max="1" type = 'number' id = 'myTextBox1' name = 'SRCrib' style="height: 15px ; width: 300px;" placeholder="Yes(1) OR No(0)"></h4>-->
+        <h4 align="center"><select id="myTextBox1" name="Im_good_at">
+            <option value="" disabled selected>Select your opinion</option>
+            <option value="2">Agree</option>
+            <option value="1">Strongly agree</option>
+            <option value="3">Disagree</option>
+            <option value="4">Strongly disagree</option>
+            <option value="5">Don't agree or disagree</option>
+        </select></h4>
+        <h4 align="center"><button>SUBMIT</button></h4>
+    </form>
+   
+    
+    
+    
+</body>
+</html>
