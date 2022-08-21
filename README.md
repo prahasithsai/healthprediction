@@ -46,6 +46,7 @@ F1 scores : 'Logistic Regression' : 0.91, 'XG boost' : 0.90, 'RandomForest' : 0.
 * Note:
 * Please refer 'model.py' for the code file & documentation file in 'Project Documentation' file
 * Attachments:
-•	Link: https://github.com/prahasithsai/healthprediction
-•	Deployment Link: https://mentalhealthprediction.herokuapp.com/
+*	Link: https://github.com/prahasithsai/healthprediction
+*	Deployment Link: https://mentalhealthprediction.herokuapp.com/
+* Used Libraries: pandas, numpy,matplotlib,seaborn,sklearn,flask.
 
